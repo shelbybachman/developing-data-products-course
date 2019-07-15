@@ -1,0 +1,72 @@
+---
+title: "My Presentation"
+author: "Shelby Bachman"
+date: "7/15/2019"
+output: ioslides_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## My new slide
+
+plain text
+
+*italicized text*
+
+**bold text**
+
+`for (i %in% 1:10)`
+
+*** 
+A slide without a title
+
+## My title
+
+### A top level subheading
+
+#### A second level subheading
+<br> 
+- Bullet 1
+- Bullet 2
+
+1. Item a
+2. Item b
+
+## A slide with code
+
+Code + output:
+
+```{r, comment = "", echo = TRUE}
+head(mtcars)
+```
+
+Code only:
+
+```{r, comment = "", eval = FALSE, echo = TRUE}
+head(mtcars, 5)
+```
+
+## A slide with code (cont.)
+
+Output only:
+
+```{r, comment = "", echo = FALSE}
+names(mtcars)
+```
+
+## A plot
+
+```{r, echo = FALSE, fig.align = 'center', fig.cap = 'my figure'}
+plot(mtcars$wt, mtcars$mpg, xlab = "weight", ylab = "MPG")
+```
+
+## Publishing RStudio Presentations
+
+**Options:** 
+
+- view in browser
+- publish to RPubs (*use button in RStudio*)
+- publish to Github (*need a gh-pages branch*)
+  - then use this URL:`user.github.io/reponame/file.html`
