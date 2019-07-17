@@ -51,7 +51,7 @@ data <- data %>%
 
 ```
 
-The map below shows the locations of `r nrow(data)` national parks in the western US, colored according to the state in which they are located. Hover over the marker representing each park to read its name, visit its website, and see its number of annual visitors. These data were obtained from the [Visitor Use Statistics](https://irma.nps.gov/Stats/) service of the US National Park Service.
+The map below shows the locations of `r nrow(data)` national parks in the western US, colored according to the state in which they are located. Hover over the marker representing each park to read its name, visit its website, and see the number of visitors in the year 2018. These data were obtained from the [Visitor Use Statistics](https://irma.nps.gov/Stats/) service of the US National Park Service.
 
 ```{r create_map}
 
