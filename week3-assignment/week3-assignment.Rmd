@@ -78,8 +78,9 @@ I include code below that creates a ggplot object showing the number of visitors
 
 ```{r plotly_data, echo = TRUE, eval = FALSE}
 
-ggplot(data = data %>% 
-              filter(park == 'Channel Islands' | park == 'Pinnacles' | park == 'Redwoods'),
+parksToKeep <- c('Channel Islands', 'Pinnacles', 'Redwoods')
+p <- ggplot(data = data %>% 
+              filter(park %in% parksToKeep),
             aes(x = year, y = visitors, colour = park)) +
   geom_point(size = 2) + geom_path(aes(group = park), size = 1) +
   scale_color_brewer(palette = "Accent") + 
@@ -91,11 +92,11 @@ ggplot(data = data %>%
 
 I then convert the ggpplot object to a plotly object:
 
-```{r plotly_data_show, echo = FALSE, eval = TRUE}
+```{r plotly_data_show, echo = FALSE, eval = TRUE, tidy=TRUE}
 
+parksToKeep <- c('Channel Islands', 'Pinnacles', 'Redwoods')
 p <- ggplot(data = data %>% 
-              filter(park == 'Channel Islands' | park == 'Pinnacles' 
-                     | park == 'Redwoods'),
+              filter(park %in% parksToKeep),
             aes(x = year, y = visitors, colour = park)) +
   geom_point(size = 2) + geom_path(aes(group = park), size = 1) +
   scale_color_brewer(palette = "Accent") + 
