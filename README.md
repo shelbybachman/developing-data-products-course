@@ -9,3 +9,7 @@ repository for Coursera Developing Data Products course. contains shelby's notes
 
 ## Plotly
 [week 3 assignment](https://shelbybachman.github.io/developing-data-products-course/week3-assignment/week3-assignment.html)
+
+## Final Project
+[app]()
+[slides](https://shelbybachman.github.io/developing-data-products-course/final-project/final-project.html)
