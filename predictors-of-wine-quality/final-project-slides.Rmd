@@ -60,7 +60,7 @@ The app has three main functionalities, each located in a separate tab:
 
 ## Explore Variables Tab
 
-For example, to explore **density** values for white vinho verde wines, you could use the first tab. After selecting relevant preferences, the app will display 4 visualizations. including the plots below, that allow for exploration fo the variable:
+For example, to explore **density** values for white vinho verde wines, you could use the first tab. After selecting relevant preferences, the app will display 4 visualizations. including the plots below, that allow for exploration of the variable:
 
 ```{r explore, echo = TRUE, eval = TRUE, fig.height = 3}
 par(mfrow = c(1,2))
