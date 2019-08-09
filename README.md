@@ -1,5 +1,5 @@
 # developing-data-products-course
-repository for Coursera Developing Data Products course. contains shelby's notes and examples
+this is the repository for Shelby's notes and assignments from Coursera's Developing Data Products course
 
 ## Final Project: Predictors of Wine Quality App
 [app](https://shelbybachman.shinyapps.io/predictors-of-wine-quality/)
