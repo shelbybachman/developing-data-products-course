@@ -52,13 +52,13 @@ The Predictors of Wine Quality app allows for the exploration and modeling of va
 
 Data used by this app was obtained from [this link](http://www3.dsi.uminho.pt/pcortez/wine/) (Cortez et al., 2009). The dataset includes physicochemical property values for various red and white wines from the Portuguese [vinho verde](http://www.vinhoverde.pt/en/) variety. 
 
-The app has three main functionalities: 
+The app has three main functionalities, each located in a separate tab: 
 
 - **exploration of variables** in this dataset reflecting different physicochemical properties of vinho verde wine
 - constructing and evaluating multiple linear **regression** models to examine the relationship between properties and quality
 - **prediction** of wine quality based on inputted values of various physicochemical properties
 
-## Explore Variables
+## Explore Variables Tab
 
 For example, to explore **density** values for white vinho verde wines, you could use the first tab. After selecting relevant preferences, the app will display 4 visualizations. including the plots below, that allow for exploration fo the variable:
 
