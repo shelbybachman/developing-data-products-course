@@ -1,7 +1,14 @@
 # developing-data-products-course
 repository for Coursera Developing Data Products course. contains shelby's notes and examples
 
-## R Markdown
+## Final Project: Predictors of Wine Quality App
+[app](https://shelbybachman.shinyapps.io/predictors-of-wine-quality/)
+<br>
+[description](https://shelbybachman.github.io/developing-data-products-course/final-project/final-project.html)
+
+## Templates
+
+## R Markdown Presentation
 [template slides](https://shelbybachman.github.io/developing-data-products-course/R_markdown/my_presentation.html)
 
 ## Leaflet
@@ -10,6 +17,4 @@ repository for Coursera Developing Data Products course. contains shelby's notes
 ## Plotly
 [week 3 assignment](https://shelbybachman.github.io/developing-data-products-course/week3-assignment/week3-assignment.html)
 
-## Final Project
-[app]()
-[slides](https://shelbybachman.github.io/developing-data-products-course/final-project/final-project.html)
+
