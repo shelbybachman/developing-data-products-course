@@ -1,0 +1,111 @@
+---
+title: "Week 3 Assignment"
+subtitle: "Developing Data Products Course"
+author: "Shelby Bachman"
+date: "7/24/2019"
+output: ioslides_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(warning = FALSE)
+knitr::opts_chunk$set(message = FALSE)
+
+library(data.table)
+library(dplyr)
+library(tidyr)
+library(plotly)
+
+```
+
+## Overview
+
+In these slides, I will load, manipulate, and plot data to show the number of visitors to each of California's National Parks for each year from 2009 to 2018.
+
+Data for this assignment was obtained from from the US National Park Service [Visitor Use Statistics](https://irma.nps.gov/Stats/) service.
+
+## Load the data
+
+First, I load the visitor data using the `fread()` function from the `data.table` package.
+
+```{r load_data, echo = TRUE}
+
+data <- fread('park_data.csv', header = TRUE)
+head(data, 5)
+
+```
+
+## Tidy the data
+
+ I would like to convert the data from wide to long format to thereby display the data with two variables, `year` and `visitors`. I do this below using the `gather()` function from the `tidyr` package.
+
+```{r tidy_data, echo = TRUE}
+
+data <- data %>%
+  gather(key = year, value = visitors, -park) %>%
+  mutate(park = as.factor(park),
+         year = as.factor(year))
+head(data, 3)
+
+```
+
+## Plot visitors by year using plotly
+
+Next, I will plot the number of visitors (y) by year (x) as a line plot, with separate lines for each park. 
+
+I will use the `plot_ly()` function within the `plotly` package for added interactivity. Find the final plot on the next page.
+
+```{r plot_data, echo = TRUE, eval = FALSE}
+
+plot_ly(data = data, x = ~year, y = ~visitors, type = "scatter", 
+        mode = "lines", color = ~park)
+
+```
+
+## CA national park visitors by year
+
+```{r plot_data_show, echo = FALSE, eval = TRUE}
+
+plot_ly(data = data, x = ~year, y = ~visitors, type = "scatter", mode = "lines",
+        color = ~park)
+
+```
+
+## Plot a subset of the data using ggplotly
+
+Next, I will demonstrate the use of the `ggplotly()` function which converts a ggplot object to a plotly object.
+
+I include code below that creates a ggplot object showing the number of visitors in each year from 2009-2018 for three of the lesser-visited parks, Channel Islands, Pinnacles, and Redwoods.
+
+```{r plotly_data, echo = TRUE, eval = FALSE}
+
+parksToKeep <- c('Channel Islands', 'Pinnacles', 'Redwoods')
+p <- ggplot(data = data %>% 
+              filter(park %in% parksToKeep),
+            aes(x = year, y = visitors, colour = park)) +
+  geom_point(size = 2) + geom_path(aes(group = park), size = 1) +
+  scale_color_brewer(palette = "Accent") + 
+  theme_minimal()
+  
+```
+
+***
+
+I then convert the ggpplot object to a plotly object:
+
+```{r plotly_data_show, echo = FALSE, eval = TRUE, tidy=TRUE}
+
+parksToKeep <- c('Channel Islands', 'Pinnacles', 'Redwoods')
+p <- ggplot(data = data %>% 
+              filter(park %in% parksToKeep),
+            aes(x = year, y = visitors, colour = park)) +
+  geom_point(size = 2) + geom_path(aes(group = park), size = 1) +
+  scale_color_brewer(palette = "Accent") + 
+  theme_minimal()
+
+```
+
+```{r plotly_data_show2, echo = TRUE, eval = TRUE}
+
+ggplotly(p)
+
+```

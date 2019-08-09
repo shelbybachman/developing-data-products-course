@@ -1,0 +1,70 @@
+---
+title: "Developing Data Products Course Week 2 Assignment"
+author: "Shelby Bachman"
+date: '`r Sys.time()`'
+output:
+  html_document:
+    fig_caption: yes
+    number_sections: no
+    theme: cosmo
+    toc: yes
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+knitr::opts_chunk$set(warning = FALSE)
+knitr::opts_chunk$set(message = FALSE)
+
+library(rprojroot)
+library(data.table)
+library(dplyr)
+library(leaflet)
+
+path <- function(x) find_root_file(x, criterion = has_file('week2-assignment.Rproj'))
+
+```
+
+```{r load_data}
+
+# load raw data with coordinates and states of parks
+data <- fread(path('parks.csv')) %>%
+  mutate(col = ifelse(state == 'CA', 'blue', 
+                        ifelse(state == 'OR', 'green', 
+                               ifelse(state == 'WA', 'red', NA))))
+
+# get state names and corresponding colors
+color_by_state <- data %>%
+  group_by(state) %>%
+  summarize(color = unique(col))
+labels_state <- color_by_state$state
+labels_color <- color_by_state$color
+rm(color_by_state)
+
+```
+
+```{r set_sites}
+
+# set websites for each of the parks
+data <- data %>%
+  rowwise() %>%
+  mutate(park_site = paste("<a href=", url, ">website</a>", sep=""))
+
+```
+
+The map below shows the locations of `r nrow(data)` national parks in the western US, colored according to the state in which they are located. Hover over the marker representing each park to read its name, visit its website, and see the number of visitors in the year 2018. These data were obtained from the [Visitor Use Statistics](https://irma.nps.gov/Stats/) service of the US National Park Service.
+
+```{r create_map}
+
+# create leaflet map with color indicating state
+park_map <- data %>%
+  leaflet() %>%
+  addTiles() %>%
+  addCircleMarkers(color = data$col, 
+                   popup = paste(data$park, " National Park", "<br>",
+                                 "Annual visits: ", data$visits, "<br>",
+                                 data$park_site)) %>%
+  addLegend(labels = labels_state, colors = labels_color)
+
+park_map
+
+```
