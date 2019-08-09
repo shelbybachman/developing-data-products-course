@@ -4,7 +4,7 @@ this is the repository for Shelby's notes and assignments from Coursera's Develo
 ## Final Project: Predictors of Wine Quality App
 [app](https://shelbybachman.shinyapps.io/predictors-of-wine-quality/)
 <br>
-[description](https://shelbybachman.github.io/developing-data-products-course/final-project/final-project.html)
+[description](https://shelbybachman.github.io/developing-data-products-course/predictors-of-wine-quality/final-project-slides.html)
 
 ## R Markdown Presentation
 [template slides](https://shelbybachman.github.io/developing-data-products-course/R_markdown/my_presentation.html)
