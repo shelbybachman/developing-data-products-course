@@ -6,8 +6,6 @@ repository for Coursera Developing Data Products course. contains shelby's notes
 <br>
 [description](https://shelbybachman.github.io/developing-data-products-course/final-project/final-project.html)
 
-## Templates
-
 ## R Markdown Presentation
 [template slides](https://shelbybachman.github.io/developing-data-products-course/R_markdown/my_presentation.html)
 
